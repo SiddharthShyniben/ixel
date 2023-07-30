@@ -12,6 +12,7 @@
 	},
 	"keywords": ["TUI"],
 	"files": ["src/**/*"],
+	"type": "module",
 	"author": "Siddharth Shyniben <siddharth.muscat@gmail.com> (https://siddu.tech/)",
 	"license": "GPL-3.0",
 	"bugs": {
