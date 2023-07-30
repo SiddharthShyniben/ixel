@@ -1,22 +1,23 @@
 {
-  "name": "ixel",
-  "version": "1.0.0",
-  "description": "A minimal Node.js TUI engine",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SiddharthShyniben/ixel.git"
-  },
-  "keywords": [
-    "TUI"
-  ],
-  "author": "Siddharth Shyniben <siddharth.muscat@gmail.com> (https://siddu.tech/)",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/SiddharthShyniben/ixel/issues"
-  },
-  "homepage": "https://github.com/SiddharthShyniben/ixel#readme"
+	"name": "ixel",
+	"version": "1.0.0",
+	"description": "A minimal Node.js TUI engine",
+	"main": "index.js",
+	"scripts": {
+		"test": "xo"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SiddharthShyniben/ixel.git"
+	},
+	"keywords": ["TUI"],
+	"author": "Siddharth Shyniben <siddharth.muscat@gmail.com> (https://siddu.tech/)",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/SiddharthShyniben/ixel/issues"
+	},
+	"homepage": "https://github.com/SiddharthShyniben/ixel#readme",
+	"devDependencies": {
+		"xo": "^0.55.0"
+	}
 }
