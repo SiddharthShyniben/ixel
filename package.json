@@ -10,8 +10,12 @@
 		"type": "git",
 		"url": "git+https://github.com/SiddharthShyniben/ixel.git"
 	},
-	"keywords": ["TUI"],
-	"files": ["src/**/*"],
+	"keywords": [
+		"TUI"
+	],
+	"files": [
+		"src/**/*"
+	],
 	"type": "module",
 	"author": "Siddharth Shyniben <siddharth.muscat@gmail.com> (https://siddu.tech/)",
 	"license": "GPL-3.0",
@@ -21,5 +25,8 @@
 	"homepage": "https://github.com/SiddharthShyniben/ixel#readme",
 	"devDependencies": {
 		"xo": "^0.55.0"
+	},
+	"dependencies": {
+		"wrap-text": "^1.0.9"
 	}
 }
