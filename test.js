@@ -5,13 +5,13 @@ const ixel = new Ixel();
 const ui = new UI(ixel);
 const box = new Widgets.Box(ui)
 	.dimensions(0, 0, 40, 20)
-	.text(`test`)
+	.text('test')
 	.pad(1, 1);
 
 ui.addWidget(box);
-ui.render()
+ui.render();
 
 ixel.key('k', () => {
 	box._text += 'a';
-	ui.render()
-})
+	ui.render();
+});

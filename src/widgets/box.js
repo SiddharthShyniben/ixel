@@ -15,7 +15,7 @@ export class Box {
 		this.width = width;
 		this.height = height;
 
-		return this
+		return this;
 	}
 
 	text(text) {
@@ -24,7 +24,8 @@ export class Box {
 	}
 
 	pad(px = 0, py = 0) {
-		this.px = px; this.py = py;
+		this.px = px;
+		this.py = py;
 		return this;
 	}
 
@@ -41,12 +42,10 @@ export class Box {
 		const textLines = wrapText(this._text, wrapWidth)
 			.split('\n')
 			.slice(0, this.height - 2 - (this.py * 2));
-		// TODO: looong words handling
 
-		for (let i = 0; i < textLines.length; i++) {
-			const line = textLines[i];
-			for (let j = 0; j < line.length; j++) {
-				this.ixel.setPixel(this.x + this.px + 1 + j, this.y + this.py + i + 1, line[j]);
+		for (const [i, line] of textLines.entries()) {
+			for (const [j, element] of line.split('').entries()) {
+				this.ixel.setPixel(this.x + this.px + 1 + j, this.y + this.py + i + 1, element);
 			}
 		}
 
@@ -58,6 +57,7 @@ export class Box {
 		for (let i = 1; i < this.width - 1; i++) {
 			this.ixel.setPixel(x + i, y, middle);
 		}
+
 		this.ixel.setPixel(x + this.width - 1, y, right);
 
 		return this;

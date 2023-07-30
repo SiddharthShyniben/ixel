@@ -1,4 +1,5 @@
 import readline from 'node:readline';
+import process from 'node:process';
 
 export class Ixel {
 	constructor() {
@@ -14,7 +15,7 @@ export class Ixel {
 
 	initializeScreen() {
 		for (let row = 0; row < this.rows; row++) {
-			this.screen.push(Array(this.cols).fill(' '));
+			this.screen.push(Array.from({length: this.cols}).fill(' '));
 		}
 	}
 
@@ -25,7 +26,7 @@ export class Ixel {
 			this.handleKeyPress(key);
 		});
 
-		process.stdout.write('\x1B[2J\x1B[?25l');
+		process.stdout.write('\u001B[2J\u001B[?25l');
 	}
 
 	setPixel(x, y, value) {
@@ -33,21 +34,25 @@ export class Ixel {
 			if (y >= this.rows) {
 				this.resizeScreen(y + 1, this.cols);
 			}
+
 			if (x >= this.cols) {
 				this.resizeScreen(this.rows, x + 1);
 			}
+
 			this.screen[y][x] = value[0];
 		}
 	}
 
 	resizeScreen(rows, cols) {
-		if (rows <= this.rows && cols <= this.cols) return;
-
-		while (this.screen.length < rows) {
-			this.screen.push(Array(this.cols).fill(' '));
+		if (rows <= this.rows && cols <= this.cols) {
+			return;
 		}
 
-		for (let row of this.screen) {
+		while (this.screen.length < rows) {
+			this.screen.push(Array.from({length: this.cols}).fill(' '));
+		}
+
+		for (const row of this.screen) {
 			while (row.length < cols) {
 				row.push(' ');
 			}
@@ -57,29 +62,31 @@ export class Ixel {
 	render() {
 		this.cols = process.stdout.columns;
 		this.rows = process.stdout.rows;
-		process.stdout.write('\x1BP=1s\x1B\\');
+		process.stdout.write('\u001BP=1s\u001B\\');
 
-		process.stdout.write(`\x1B[H`);
+		process.stdout.write('\u001B[H');
 		for (let row = 0; row < this.rows; row++) {
 			for (let col = 0; col < this.cols; col++) {
 				const value = this.screen[row]?.[col] ?? ' ';
 
-				// if (this._screen[row]?.[col] === value) return;
+				// If (this._screen[row]?.[col] === value) return;
 				// ????????????
 				process.stdout.write(value);
-
 			}
-			if (row + 1 !== this.rows) process.stdout.write('\n');
+
+			if (row + 1 !== this.rows) {
+				process.stdout.write('\n');
+			}
 		}
 
 		this._screen = JSON.parse(JSON.stringify(this.screen));
-		process.stdout.write('\x1BP=2s\x1B\\');
+		process.stdout.write('\u001BP=2s\u001B\\');
 	}
 
 	handleKeyPress(key) {
 		if (key.ctrl && key.name === 'c') {
 			process.stdin.setRawMode(false);
-			process.stdout.write('\x1B[H\x1B[2J\x1B[?25h');
+			process.stdout.write('\u001B[H\u001B[2J\u001B[?25h');
 			process.exit();
 		}
 
@@ -89,7 +96,7 @@ export class Ixel {
 	}
 
 	clear() {
-		process.stdout.write('\x1B[2J');
+		process.stdout.write('\u001B[2J');
 	}
 
 	key(k, fn) {

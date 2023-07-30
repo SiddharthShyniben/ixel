@@ -4,7 +4,7 @@
 	"description": "A minimal Node.js TUI engine",
 	"main": "src/index.js",
 	"scripts": {
-		"test": "xo"
+		"test": "xo --fix"
 	},
 	"repository": {
 		"type": "git",

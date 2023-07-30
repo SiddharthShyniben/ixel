@@ -9,9 +9,9 @@ export class UI {
 	}
 
 	render() {
-		this.widgets.forEach(widget => {
+		for (const widget of this.widgets) {
 			widget.draw();
-		});
+		}
 
 		this.ixel.render();
 	}
