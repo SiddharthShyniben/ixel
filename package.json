@@ -2,7 +2,7 @@
 	"name": "ixel",
 	"version": "1.0.0",
 	"description": "A minimal Node.js TUI engine",
-	"main": "index.js",
+	"main": "src/index.js",
 	"scripts": {
 		"test": "xo"
 	},
@@ -11,6 +11,7 @@
 		"url": "git+https://github.com/SiddharthShyniben/ixel.git"
 	},
 	"keywords": ["TUI"],
+	"files": ["src/**/*"],
 	"author": "Siddharth Shyniben <siddharth.muscat@gmail.com> (https://siddu.tech/)",
 	"license": "GPL-3.0",
 	"bugs": {
